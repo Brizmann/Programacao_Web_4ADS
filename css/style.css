@@ -1,48 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 :root{
-	--bg:#f6f7fb;
+	--bg:#fff8fa; /* muito claro, toque rosado */
 	--card:#ffffff;
-	--accent:#4f46e5;
-	--muted:#6b7280;
+	--accent:#FF6B91; /* rosa cereja */
+	--accent-2:#FFB7C5; /* rosa claro */
+	--mint:#D5F3D8; /* verde claro */
+	--soft:#F2C7C7; /* rosa suave */
+	--muted:#6b5162; /* tom neutro legível */
 	--radius:10px;
 	--max-width:1100px;
 }
 
 *{box-sizing:border-box}
+
+/* garante que o gradiente preencha toda a página e não repita */
+html, body{height:100%}
 body{
 	margin:0;
 	font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-	background:var(--bg);
+	background: linear-gradient(123deg, rgba(242, 199, 199, 1) 0%, rgba(213, 243, 216, 1) 50%, rgba(255, 199, 213, 1) 100%);
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-size:cover;
 	color:#0f172a;
 	-webkit-font-smoothing:antialiased;
 }
 .container{max-width:var(--max-width);margin:0 auto;padding:24px}
 
-.site-header{background:linear-gradient(90deg, rgba(79,70,229,0.06), transparent);border-bottom:1px solid rgba(15,23,42,0.04)}
+.site-header{background:linear-gradient(90deg, rgba(255,107,145,0.06), rgba(213,243,216,0.02));border-bottom:1px solid rgba(15,23,42,0.04)}
 .site-header .container{display:flex;align-items:center;justify-content:space-between}
 .logo{margin:0;font-size:20px;font-weight:600}
-.main-nav a{margin-left:16px;color:var(--muted);text-decoration:none;padding:8px;border-radius:6px}
-.main-nav a:hover{color:var(--accent);background:rgba(79,70,229,0.06)}
+.main-nav a{margin-left:16px;color:var(--muted);text-decoration:none;padding:8px;border-radius:6px;transition:all .22s ease}
+.main-nav a:hover{color:var(--accent);background:rgba(255,107,145,0.08);transform:translateY(-2px)}
 .main-nav a.active{color:var(--accent);font-weight:600}
 
-.hero{background:var(--card);padding:48px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(15,23,42,0.04);text-align:center;margin:24px 0}
+.hero{background:var(--card);padding:48px;border-radius:var(--radius);box-shadow:0 10px 28px rgba(255,107,145,0.05);text-align:center;margin:24px 0}
 .hero.small{padding:28px}
 .hero h2{margin:0 0 8px;font-size:26px}
 .hero p{margin:0;color:var(--muted)}
 .cta-row{margin-top:16px}
 
-.btn{display:inline-block;padding:10px 16px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:600}
-.btn.ghost{background:transparent;color:var(--accent);border:2px solid rgba(79,70,229,0.12)}
+.btn{display:inline-block;padding:10px 16px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;box-shadow:0 8px 20px rgba(255,107,145,0.12);transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.btn:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(255,107,145,0.14)}
+.btn.ghost{background:transparent;color:var(--accent);border:2px solid rgba(255,107,145,0.12)}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
-.card{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.03)}
+.card{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 8px 22px rgba(205,144,160,0.04);transition:transform .22s ease,box-shadow .22s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(205,144,160,0.08)}
 .card h3{margin-top:0}
 .card .link{display:inline-block;margin-top:8px;color:var(--accent);text-decoration:none}
 
 .grid{display:grid;gap:18px}
 .projects{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
-.project .thumb{height:140px;background:linear-gradient(135deg, #e9d5ff, #c7d2fe);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#3730a3}
+.project .thumb{height:140px;background:linear-gradient(135deg, var(--soft), var(--mint));border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#2f2b2f;box-shadow:inset 0 -20px 40px rgba(255,183,197,0.08);overflow:hidden;position:relative}
+.project .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(255,255,255,0.06), transparent);mix-blend-mode:soft-light}
 .project h3{margin:12px 0 6px}
 .project p{margin:0;color:var(--muted)}
 .project.card{overflow:hidden}
@@ -55,13 +67,23 @@ body{
 .contact-form label{display:block;margin-bottom:12px;color:var(--muted);font-size:14px}
 .contact-form input,.contact-form textarea{width:100%;padding:10px;border:1px solid #e6eef8;border-radius:8px;margin-top:6px}
 .form-actions{display:flex;gap:12px;justify-content:flex-end;margin-top:8px}
-.btn.shadow{box-shadow:0 6px 12px rgba(79,70,229,0.12)}
+.btn.shadow{box-shadow:0 6px 12px rgba(255,107,145,0.12)}
 
 .site-footer{padding:18px 0;margin-top:28px;color:var(--muted);text-align:center}
 
+/* animações sutis */
+@keyframes floaty {
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
+}
+.project .thumb{animation:floaty 6s ease-in-out infinite}
+
+/* pequenos ajustes responsivos */
 @media (max-width:720px){
 	.site-header .container{flex-direction:column;align-items:flex-start}
 	.main-nav{margin-top:10px}
 	.hero{padding:26px}
+	.project .thumb{height:120px}
 }
 
