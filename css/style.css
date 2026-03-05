@@ -60,8 +60,22 @@ body{
 .project.card{overflow:hidden}
 .project:hover{transform:translateY(-6px);transition:all .25s ease}
 
+/* Espaçamento para botão dentro dos cards de projeto */
+.project .btn{margin-top:12px;display:inline-block}
+
 .services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .service{padding:20px}
+
+/* Ícones dos serviços: espaço acima do título e dimensionamento */
+.service .service-icon{display:flex;align-items:center;justify-content:center;margin-bottom:10px;height:72px}
+.service .service-icon svg{width:64px;height:64px;display:block}
+.service h3{margin-top:6px}
+
+@media (max-width:720px){
+	.service .service-icon{height:56px}
+	.service .service-icon svg{width:48px;height:48px}
+	.service h3{font-size:16px}
+}
 
 .contact-card{margin-top:18px;padding:18px;background:var(--card);border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.03)}
 .contact-form label{display:block;margin-bottom:12px;color:var(--muted);font-size:14px}
@@ -71,7 +85,7 @@ body{
 
 .site-footer{padding:18px 0;margin-top:28px;color:var(--muted);text-align:center}
 
-/* animações sutis */
+/* Animações sutis */
 @keyframes floaty {
   0%{transform:translateY(0)}
   50%{transform:translateY(-6px)}
@@ -79,7 +93,7 @@ body{
 }
 .project .thumb{animation:floaty 6s ease-in-out infinite}
 
-/* pequenos ajustes responsivos */
+/* Pequenos ajustes responsivos */
 @media (max-width:720px){
 	.site-header .container{flex-direction:column;align-items:flex-start}
 	.main-nav{margin-top:10px}
@@ -87,7 +101,7 @@ body{
 	.project .thumb{height:120px}
 }
 
-/* Profile photo displayed above the hero section */
+/* Dimensões e formatacao da foto */
 .profile-photo{
 	width:260px;
 	height:260px;
